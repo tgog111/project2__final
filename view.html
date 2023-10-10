@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 상세 정보</title>
+    <link rel="stylesheet" type="text/css" href="css/my.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">옥돌이의 도서 상세 정보</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>도서 정보</h2>
+                <ul>
+                    <li><strong>도서명:</strong> <span id="bookTitle"></span></li>
+                    <li><strong>저자:</strong> <span id="bookAuthor"></span></li>
+                    <li><strong>출판사:</strong> <span id="bookPublisher"></span></li>
+                    <li><strong>출판년도:</strong> <span id="bookYear"></span></li>
+                </ul>
+                <button class="btn btn-primary" onclick="redirectToEditPage()">Edit</button>
+                <button class="btn btn-primary" onclick="confirmDelete()">Delete</button>
+                
+                <script>
+                    
+                    window.onload = function () {
+                        const params = new URLSearchParams(window.location.search);
+                        const bookId = parseInt(params.get("id"));
+
+                        
+                        if (bookId === 1) {
+                            displayBookInfo("자바의 정석", "남궁성", "도우출판", 2016);
+                        } else if (bookId === 2) {
+                            displayBookInfo("우리가 빛의", "김초엽", "허블", 2019);
+                        } else if (bookId === 3) {
+                            displayBookInfo("벼랑끝에서는용기", "로렌 커닝햄", "예수전도단", 2015);
+                        } else if (bookId === 4) {
+                            displayBookInfo("하나님 정말 당신이십니까?", "로렌 커닝햄", "예수전도단", 2015);
+                        }
+                    }
+
+                    
+                    function displayBookInfo(title, author, publisher, year) {
+                        document.getElementById("bookTitle").textContent = title;
+                        document.getElementById("bookAuthor").textContent = author;
+                        document.getElementById("bookPublisher").textContent = publisher;
+                        document.getElementById("bookYear").textContent = year;
+                    }
+
+                    
+                    function redirectToEditPage() {
+                        const params = new URLSearchParams(window.location.search);
+                        const bookId = params.get("id"); 
+
+                        
+                        window.location.href = `edit.html?id=${bookId}`;
+                    }
+
+                    
+                    function confirmDelete() {
+                        if (confirm("게시물을 삭제할까요?")) {
+                            
+                            const params = new URLSearchParams(window.location.search);
+                            const bookId = params.get("id"); 
+
+                            
+                            const index = books.findIndex(item => item.id === parseInt(bookId));
+                            if (index !== -1) {
+                                books.splice(index, 1);
+                            }
+
+                            
+                            window.location.href = "index.html";
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
