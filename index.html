@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD 웹 페이지 예시</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>사용자 목록</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>이름</th>
+                    <th>Email</th>
+                    <th>동작</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 여기에 데이터를 표시하는 JavaScript 코드를 추가할 것입니다. -->
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button onclick="openAddUserModal()">사용자 추가</button>
+        </div>
+    </div>
+
+    <!-- 사용자 추가 및 편집 모달 창 -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">사용자 추가</h2>
+            <form id="user-form">
+                <input type="hidden" id="user-id">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="button-container">
+                    <button type="button" onclick="saveUser()">저장</button>
+                    <button type="button" onclick="closeModal()">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 여기에 CRUD 기능을 구현할 JavaScript 코드를 추가할 것입니다.
+    </script>
+</body>
+</html>
