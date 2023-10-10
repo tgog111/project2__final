@@ -115,4 +115,80 @@ th {
   .navbar .form-control {
     padding: .75rem 1rem;
   }
+
+
+
+  /* 도서 정보 입력 폼의 레이아웃 CSS */
+
+.col-md-6 {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* 미디어 쿼리를 사용하여 레이아웃을 모바일 기기에 맞게 조정할 수 있습니다. */
+@media (max-width: 768px) {
+  .col-md-6 {
+      margin-top: 10px;
+      padding: 10px;
+  }
+
+  h2 {
+      font-size: 20px;
+  }
+
+  .form-control {
+      font-size: 14px;
+  }
+
+  .btn-primary {
+      font-size: 14px;
+  }
+}
+
+
+.large-button {
+  width: 150px; /* 원하는 너비로 조정 */
+  height: 50px; /* 원하는 높이로 조정 */
+  font-size: 30px;
+  background-color: plum;
+}
+
   
