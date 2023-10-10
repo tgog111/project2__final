@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 정보 수정</title>
+    <link rel="stylesheet" type="text/css" href="css/my.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">도서 정보 수정</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="editBookForm" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <label for="title">도서명</label>
+                        <input type="text" class="form-control" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">저자</label>
+                        <input type="text" class="form-control" id="author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="publisher">출판사</label>
+                        <input type="text" class="form-control" id="publisher" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">출판년도</label>
+                        <input type="text" class="form-control" id="year" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" >수정</button>
+                </form>
+
+            
+                
+                <script>
+                    // 페이지 로딩 시 선택한 도서의 정보를 폼에 표시
+                    window.onload = function () {
+                        const params = new URLSearchParams(window.location.search);
+                        const bookId = parseInt(params.get("id"));
+
+                        
+                        if (bookId === 1) {
+                            displayBookInfo("자바의 정석", "남궁성", "도우출판", 2016);
+                        } else if (bookId === 2) {
+                            displayBookInfo("우리가 빛의", "김초엽", "허블", 2019);
+                        } else if (bookId === 3) {
+                            displayBookInfo("벼랑끝에서는용기", "로렌 커닝햄", "예수전도단", 2015);
+                        } else if (bookId === 4) {
+                            displayBookInfo("하나님 정말 당신이십니까?", "로렌 커닝햄", "예수전도단", 2015);
+                        }
+                    }
+
+                    
+                    function displayBookInfo(title, author, publisher, year) {
+                        document.getElementById("bookTitle").textContent = title;
+                        document.getElementById("bookAuthor").textContent = author;
+                        document.getElementById("bookPublisher").textContent = publisher;
+                        document.getElementById("bookYear").textContent = year;
+                    }
+
+                    
+                    function redirectToEditPage() {
+                        const params = new URLSearchParams(window.location.search);
+                        const bookId = params.get("id"); 
+
+                        
+                        window.location.href = `edit.html?id=${bookId}`;
+                    }
+
+                    
+                    function validateForm() {
+                        
+                        const title = document.getElementById('title').value;
+                        const author = document.getElementById('author').value;
+                        const publisher = document.getElementById('publisher').value;
+                        const year = document.getElementById('year').value;
+
+                        
+                        if (!title || !author || !publisher || !year) {
+                            alert('모든 필수 항목을 입력하세요.');
+                            return false; // 폼 제출 막음
+                        }
+                        confirmEdit()
+                        return true; // 폼 제출 허용
+                    }
+
+                    // 수정 확인 창 표시
+                    function confirmEdit() {
+                        if (confirm("게시물을 수정할까요?")) {
+                            // 수정 확인 시, view.html로 이동 (여기서는 일단 index.html로 이동)
+                            window.location.href = "index.html";
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
