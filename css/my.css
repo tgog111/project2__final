@@ -191,3 +191,20 @@ label {
   background-color: plum;
 }
 
+/* RWD 스타일 - Phone 화면 */
+@media (max-width: 768px) {
+  /* 모바일 화면에서 가로 중앙 정렬을 위한 스타일 */
+  body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; /* 화면 전체 높이만큼 설정 */
+  }
+
+  /* 추가적인 스타일을 적용하고 싶은 요소에 클래스를 추가하세요 */
+  .centered-content {
+      text-align: center;
+  }
+}
+
